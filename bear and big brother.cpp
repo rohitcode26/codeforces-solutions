@@ -21,29 +21,16 @@ void swap_int(int *a , int *b)
 
 int solve (int testcase)
 {
-	int i , j , k ;
-	string s ;
-	cin >> s ;
-    if (s.length() <= 7)
-        cout<< "NO" ;
-	else
+	int a , b , i ;
+	cin >> a >> b ;
+	for (i = 1 ; ; i++)
 	{
-	    Fi(i , 0 , s.length() - 7)
-	    {
-		    k = 1 ;
-		    Fi(j , i+1 , i+6)
-		    {
-			    if (s[i] == s[j])
-			       k++ ;
-		    }
-		    if (k == 7)
-	        {
-	    	    cout << "YES" ;
-	    	    return 0 ;
-		    }
-	    }       
-	    cout<< "NO" ;
-    }
+		if (3*a > 2*b)
+		   break ;
+		a = 3*a ;
+		b = 2*b ; 
+	}
+	cout << i ;
 }
 
 int main()

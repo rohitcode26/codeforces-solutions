@@ -2,10 +2,19 @@
 
 using namespace std ;
 
+#define F first
+#define S second
+#define R return
+#define C continue 
+#define pb push_back 
+#define pf push_front
+#define mod1 1000000007
+
 #define vi vector <int>
 #define vl vector <long>
 #define vll vector <long long>
 #define vii vector <vector <int> >
+#define vs vector <string>
 #define vpii vector <pair <int , int> >
 #define vpll vector <pair <long , long> >
 #define Fi(i,L,R) for (int i = L; i <= R; i++)
@@ -21,29 +30,22 @@ void swap_int(int *a , int *b)
 
 int solve (int testcase)
 {
-	int i , j , k ;
-	string s ;
-	cin >> s ;
-    if (s.length() <= 7)
-        cout<< "NO" ;
-	else
+	int n , k ;
+	cin >> n >> k ;
+	int i , sum = 0 ;
+	int limit = 240 - k ;
+	if (5*n*(n+1)/2 <= limit)
 	{
-	    Fi(i , 0 , s.length() - 7)
-	    {
-		    k = 1 ;
-		    Fi(j , i+1 , i+6)
-		    {
-			    if (s[i] == s[j])
-			       k++ ;
-		    }
-		    if (k == 7)
-	        {
-	    	    cout << "YES" ;
-	    	    return 0 ;
-		    }
-	    }       
-	    cout<< "NO" ;
-    }
+		cout << n ;
+		return 0 ;
+	}
+	for (i = 1 ; ; i++)
+	{
+		sum += 5*i ;
+		if (sum > limit)
+		   break ;
+	}  
+	cout << i-1 ;
 }
 
 int main()

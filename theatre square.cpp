@@ -21,29 +21,17 @@ void swap_int(int *a , int *b)
 
 int solve (int testcase)
 {
-	int i , j , k ;
-	string s ;
-	cin >> s ;
-    if (s.length() <= 7)
-        cout<< "NO" ;
-	else
-	{
-	    Fi(i , 0 , s.length() - 7)
-	    {
-		    k = 1 ;
-		    Fi(j , i+1 , i+6)
-		    {
-			    if (s[i] == s[j])
-			       k++ ;
-		    }
-		    if (k == 7)
-	        {
-	    	    cout << "YES" ;
-	    	    return 0 ;
-		    }
-	    }       
-	    cout<< "NO" ;
-    }
+	unsigned long long n , m , a , stones ;
+	cin >> n >> m >> a ;
+	if (n % a == 0 && m % a == 0)
+	   stones = (n/a)*(m/a) ;
+	else if (n % a == 0 && m % a != 0)
+	   stones = (n/a)*((m/a)+1) ;
+	else if (n % a != 0 && m % a == 0)
+	   stones = ((n/a)+1)*((m/a)) ;
+	else 
+	   stones = ((n/a)+1)*((m/a)+1);
+	cout << stones ;   
 }
 
 int main()

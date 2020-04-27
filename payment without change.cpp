@@ -2,10 +2,26 @@
 
 using namespace std ;
 
+typedef long long int ll ;
+typedef unsigned long long int ull ;
+typedef unsigned long int ul ;
+typedef long double ld ;
+
+#define line cout<<'\n'
+#define F first
+#define S second
+#define R return
+#define C continue 
+#define pb push_back 
+#define pf push_front
+#define mp make_pair
+#define mod1 1000000007
+
 #define vi vector <int>
 #define vl vector <long>
 #define vll vector <long long>
 #define vii vector <vector <int> >
+#define vs vector <string>
 #define vpii vector <pair <int , int> >
 #define vpll vector <pair <long , long> >
 #define Fi(i,L,R) for (int i = L; i <= R; i++)
@@ -21,36 +37,31 @@ void swap_int(int *a , int *b)
 
 int solve (int testcase)
 {
-	int i , j , k ;
-	string s ;
-	cin >> s ;
-    if (s.length() <= 7)
-        cout<< "NO" ;
+	unsigned long long a , b , n , s ;
+	cin >> a >> b >> n >> s ;
+	if ((a*n + b) < s)
+	{
+		cout << "NO" ; line ;
+		return 0 ;
+	}
+	int x = s / n ;
+	int y = s % n ;
+	if (y > b)
+	{
+		cout << "NO" ; line ;
+		return 0 ;
+	}
 	else
 	{
-	    Fi(i , 0 , s.length() - 7)
-	    {
-		    k = 1 ;
-		    Fi(j , i+1 , i+6)
-		    {
-			    if (s[i] == s[j])
-			       k++ ;
-		    }
-		    if (k == 7)
-	        {
-	    	    cout << "YES" ;
-	    	    return 0 ;
-		    }
-	    }       
-	    cout<< "NO" ;
-    }
+		cout << "YES" ; line ;
+	}
 }
 
 int main()
 {
 	fast 
 	int t = 1 ;
-//	cin>>t ;
+	cin>>t ;
 	while (t--) 
 	  solve (1) ;
 	return 0 ;

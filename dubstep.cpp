@@ -2,6 +2,8 @@
 
 using namespace std ;
 
+#define pb push_back 
+#define pf push_front
 #define vi vector <int>
 #define vl vector <long>
 #define vll vector <long long>
@@ -21,29 +23,24 @@ void swap_int(int *a , int *b)
 
 int solve (int testcase)
 {
-	int i , j , k ;
+	int i ;
 	string s ;
+	string song = "" ;
 	cin >> s ;
-    if (s.length() <= 7)
-        cout<< "NO" ;
-	else
+	for (i = 0 ; i < s.size() ; i++)
 	{
-	    Fi(i , 0 , s.length() - 7)
+		if (s[i] == 'W' && s[i+1] == 'U' && s[i+2] == 'B' && i < s.size() - 2)
 	    {
-		    k = 1 ;
-		    Fi(j , i+1 , i+6)
-		    {
-			    if (s[i] == s[j])
-			       k++ ;
-		    }
-		    if (k == 7)
-	        {
-	    	    cout << "YES" ;
-	    	    return 0 ;
-		    }
-	    }       
-	    cout<< "NO" ;
-    }
+	    	i += 2 ;
+	    	if (song.size() && song.back() != ' ')
+	    	   song += ' ' ;
+		}
+		else
+		{
+			song += s[i] ;	
+		}
+	}
+	cout << song ;
 }
 
 int main()

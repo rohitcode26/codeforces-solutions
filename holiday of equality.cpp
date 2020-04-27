@@ -21,29 +21,17 @@ void swap_int(int *a , int *b)
 
 int solve (int testcase)
 {
-	int i , j , k ;
-	string s ;
-	cin >> s ;
-    if (s.length() <= 7)
-        cout<< "NO" ;
-	else
+	int n , i , changes = 0 ;
+	cin >> n ;
+	vi v (n+1) ;
+	Fi(i , 1 , n)
+	   cin >> v[i] ;
+	int largest = *max_element(v.begin() , v.end()) ; 
+	Fi(i , 1 , n)
 	{
-	    Fi(i , 0 , s.length() - 7)
-	    {
-		    k = 1 ;
-		    Fi(j , i+1 , i+6)
-		    {
-			    if (s[i] == s[j])
-			       k++ ;
-		    }
-		    if (k == 7)
-	        {
-	    	    cout << "YES" ;
-	    	    return 0 ;
-		    }
-	    }       
-	    cout<< "NO" ;
-    }
+	   	changes += largest - v[i] ;
+	}  
+	cout<<changes ;
 }
 
 int main()

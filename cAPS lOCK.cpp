@@ -2,10 +2,19 @@
 
 using namespace std ;
 
+#define F first
+#define S second
+#define R return
+#define C continue 
+#define pb push_back 
+#define pf push_front
+#define mod1 1000000007
+
 #define vi vector <int>
 #define vl vector <long>
 #define vll vector <long long>
 #define vii vector <vector <int> >
+#define vs vector <string>
 #define vpii vector <pair <int , int> >
 #define vpll vector <pair <long , long> >
 #define Fi(i,L,R) for (int i = L; i <= R; i++)
@@ -21,29 +30,33 @@ void swap_int(int *a , int *b)
 
 int solve (int testcase)
 {
-	int i , j , k ;
 	string s ;
 	cin >> s ;
-    if (s.length() <= 7)
-        cout<< "NO" ;
+	int len = s.length() ;
+	int i , count = 0 ;
+	Fi(i , 0 , len-1)
+	{
+		if (isupper(s[i]))
+		   count++ ;	   
+	}
+	if (count == len)
+	{
+		Fi(i , 0 , len-1)
+		   s[i] = tolower(s[i]) ;
+		cout<< s ;   
+	}
+	else if (count == len-1  && islower(s[0]))
+	{
+		s[0] = toupper(s[0]) ;
+		Fi(i , 1 , len-1)
+		   s[i] = tolower(s[i]) ;
+	    cout << s ;
+	}
 	else
 	{
-	    Fi(i , 0 , s.length() - 7)
-	    {
-		    k = 1 ;
-		    Fi(j , i+1 , i+6)
-		    {
-			    if (s[i] == s[j])
-			       k++ ;
-		    }
-		    if (k == 7)
-	        {
-	    	    cout << "YES" ;
-	    	    return 0 ;
-		    }
-	    }       
-	    cout<< "NO" ;
-    }
+		cout << s ;
+	}
+	
 }
 
 int main()

@@ -21,29 +21,31 @@ void swap_int(int *a , int *b)
 
 int solve (int testcase)
 {
-	int i , j , k ;
-	string s ;
-	cin >> s ;
-    if (s.length() <= 7)
-        cout<< "NO" ;
-	else
+	int s , a , h , g ;
+	cin >> s >> a >> h ;
+    for(int i = 1 ; ; i++)
 	{
-	    Fi(i , 0 , s.length() - 7)
+		if (i % 2 == 1)   // 	simons's chance
+		{
+		   if (h < __gcd(s,h))
+		   {
+		   	   cout<<"1" ;
+		   	   break ;
+		   }
+		   g = __gcd(s,h) ;
+		   h -= g ;
+	    }
+	    else   // antisimon's chance
 	    {
-		    k = 1 ;
-		    Fi(j , i+1 , i+6)
-		    {
-			    if (s[i] == s[j])
-			       k++ ;
-		    }
-		    if (k == 7)
-	        {
-	    	    cout << "YES" ;
-	    	    return 0 ;
-		    }
-	    }       
-	    cout<< "NO" ;
-    }
+		   if (h < __gcd(a,h))
+		   {
+		   	    cout<<"0" ;
+		   	     break ;
+		   }
+		   g = __gcd(a,h) ;
+		   h -= g ;      
+		}
+	}
 }
 
 int main()
